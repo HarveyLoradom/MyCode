@@ -2,7 +2,14 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+<<<<<<< HEAD
 #include<QLabel>
+=======
+#include <QStack>
+#include<QKeyEvent>
+#include<QMap>
+#include<QPushButton>
+>>>>>>> 6a80993a50de46bcb2d5a515237c25b2cd4d74ee
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class MainWindow;
@@ -16,6 +23,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+<<<<<<< HEAD
 
 private slots:
     void on_actionAbout_triggered();
@@ -81,5 +89,38 @@ private:
     QString filepath;
     bool textchange;
     bool userEditconfirm();
+=======
+    QString operand;
+    QString opcode;
+    QStack<QString> operands;
+    QStack<QString> opcodes;
+    QMap<int,QPushButton*> digitBTNs;
+    QMap<int,QPushButton*> digitBinarys;
+    QMap<int,QPushButton*> digitUnBinarys;
+    QMap<int,QPushButton*> digitElse;
+    QString calculation(bool *ok=NULL);
+
+private slots:
+    void btnNumClicked();
+    void btnBinaryOperatorClicked();
+    void btnUnaryOperatorClicked();
+
+    void on_btnDian_clicked();
+
+    void on_btnDelete_clicked();
+
+    void on_btnC_clicked();
+
+    void on_btnAll_clicked();
+
+    void on_btnCE_clicked();
+
+    virtual void keyPressEvent(QKeyEvent *event);
+
+    void on_btnAddSub_clicked();
+
+private:
+    Ui::MainWindow *ui;
+>>>>>>> 6a80993a50de46bcb2d5a515237c25b2cd4d74ee
 };
 #endif // MAINWINDOW_H
